@@ -69,7 +69,7 @@ class rekam_medis extends CI_Controller
         $data['title'] = "Edit Data rekam_medis";
 
         $where = array('id_rekam_medis' => $id);
-        $data['r'] = $this->m_rekam_medis->get_rekam();
+        $data['r'] = $this->m_rekam_medis->edit_data()->result_array();
 
         $this->load->view('layouts/header', $data);
         $this->load->view('rekam_medis/v_data_edit', $data);

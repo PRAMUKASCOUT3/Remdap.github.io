@@ -15,16 +15,16 @@
                         <input type="date" name="tanggal_lahir" class="form-control" value="<?= $r['tanggal_lahir']?>" required>
                     </div>
                     
-                    <div class="row mb-3">
-                    <label for="">Nama pasien</label>
-                    <select name="id_pasien" id="" class="form-control">
-                        <option value="">Pilih pasien</option>
-                        <?php foreach ($pasien as $r) { ?>
-                            <option value="<?= $r['id_pasien']; ?>"><?= $r['nama_pasien']; ?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-                    
+                    <div class="form-group">
+                        <label for="">Nama pasien</label>
+                        <select name="id_pasien" id="" class="form-control">
+                            <option value="">Pilih pasien</option>
+                            <?php foreach ($pasien as $p) { ?>
+                                <option value="<?= $p['id_pasien']; ?>" <?= $p['id_pasien'] == $r['id_pasien'] ? 'selected' : '' ?>><?= $p['nama_pasien']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="">Keluhan</label>
                         <input type="text" name="keluhan" class="form-control" value="<?= $r['keluhan']?>" required>

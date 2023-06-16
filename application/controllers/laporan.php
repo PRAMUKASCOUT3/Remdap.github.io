@@ -24,16 +24,4 @@ class laporan extends CI_Controller
         
     }
 
-    public function lapo()
-    {
-        $this->load->view('layouts/header');
-        $this->load->view('laporan/v_cetak_laporan_lahiran');
-        $this->load->view('layouts/header');
-
-        $data ['title'] = "Laporan Data Pasien";
-        $data ['lahiran'] = $this->m_pasien->tampilan_data()->result_array();
-        $this->load->view('laporan/v_laporan_pasien',$data);
-    }
-   
-
 }

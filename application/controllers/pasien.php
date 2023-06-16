@@ -127,5 +127,4 @@ $difference_in_seconds = abs($today_timestamp - $request_timestamp);
 		
 		$this->load->view('pasien/laporan_pasien',$data);
 	}
-
 }

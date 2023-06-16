@@ -48,19 +48,21 @@
                                         <td style="width:40%"></td>
 
                                         <td>
-                                            <a href="<?= base_url('lahiran/cetak_laporan')?>" class="btn btn-primary">Print View</a>
-                                            <button class="btn btn-warning" name="cetak" fdprocessedid="iff7bd"><i class="fa fa-print"></i> Print</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </fieldset>
-                    </form>
-                    <hr class="line-title">
-                    <form name="formcari" id="formcari" action="cetak" method="get" target="_blank">
-                        <fieldset class="card-body">
-                            <table>
-                                <tbody>
+											<a href="<?= base_url('lahiran/cetak_laporan')?>"
+												class="btn btn-primary">Print View</a>
+											<a href="<?= base_url('lahiran/print_laporan')?>"
+												class="btn btn-warning">Print</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</fieldset>
+					</form>
+					<hr class="line-title">
+					<form name="formcari" id="formcari" action="cetak" method="get" target="_blank">
+						<fieldset class="card-body">
+							<table>
+								<tbody>
                                     <tr>
                                         <td><b>CETAK PERPERIODE</b></td>
 
@@ -78,12 +80,6 @@
 
 
                                     <tr>
-                                        <td style="width:40%">Dari Tanggal :</td>
-                                        <td><input type="date" name="tanggal1"></td>
-                                    </tr>
-                                    <br>
-                                    <tr>
-                                        <td style="width:40%">Sampai Tanggal :</td>
 
                                         <td><input type="date" name="tanggal2"></td>
                                     </tr>

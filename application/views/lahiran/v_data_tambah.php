@@ -53,8 +53,61 @@
                     </div>
                     <div class="form-group">
                         <label for="">Tindakan</label>
-                        <input type="text" name="tindakan" class="form-control" required>
+                        <div class="form-group col-sm-2">
+                            <label for="">TD</label>
+                            <input type="text" name="TD" class="form-control" required>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="">S</label>
+                            <input type="text" name="S" class="form-control" required>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="">BB</label>
+                            <input type="text" name="BB" class="form-control" required>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="">TFU</label>
+                            <input type="text" name="TFU" class="form-control" required>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="">DJJ</label>
+                            <input type="text" name="DJJ" class="form-control" required>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="">PD</label>
+                            <input type="text" name="PD" class="form-control" required>
+                        </div><br>
+                        <div class="row mb-3">
+                        <label class=" col-form-label">Porsio</label>
+                        <div class="col-sm-3">
+                            <select class="form-select" name="porsio1" aria-label="Default select example">
+                                <option selected=""></option>
+                                <option value="">Keras</option>
+                                <option value="">Lunak</option>
+                            </select><br>
+                            <select class="form-select" name="porsio2" aria-label="Default select example">
+                                <option selected=""></option>
+                                <option value="">Tebal</option>
+                                <option value="">Tipis</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="row mb-3">
+                        <label class=" col-form-label">Ketuban</label>
+                        <div class="col-sm-3">
+                            <select class="form-select" name="porsio1" aria-label="Default select example">
+                                <option selected=""></option>
+                                <option value="">+</option>
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Penurunan/HOD</label>
+                            <input type="text" name="penurunan/HOD" class="form-control" required>
+                        </div>
+
                     </div>
+                </div>
                     <div class="form-group">
                         <label for="">Bayi Lahir</label>
                         <input type="date" name="bayi_lahir" class="form-control" required>

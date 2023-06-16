@@ -45,11 +45,9 @@ class m_pasien extends CI_Model
 		return $data_siswa->result();
 	}
 
-
     public function count_all() {
         return $this->db->count_all('pasien');
 
 }
-
 
 }

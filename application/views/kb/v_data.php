@@ -2,7 +2,11 @@
     <!-- tes -->
     <div class="card-header table-responsive"  >
         <a href="<?= base_url('kb/tambah'); ?>" class="btn btn-primary">Tambah Data</a>
-        <a href="<?= base_url('kb/cetak_laporan')?>" class = "btn btn-warning">Laporan</a>
+        <!-- <a href="<?= base_url('kb/tambah1'); ?>" class="btn btn-primary">Tambah Data KB 1 Bulan</a> -->
+        <!-- <div class = "dropdown-menu dropdown-menu-start" aria-labelledby = "triggerId">
+            <a class="dropdown-item" href="">1 Bulan</a>
+            <a class="dropdown-item" href="">3 Bulan</a>
+        </div> -->
         <h5 class="card-title"><?php echo($title)?></h5>
         <?= $this->session->flashdata('pesan'); ?>
         <!-- Table with stripped rows -->

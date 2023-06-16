@@ -49,8 +49,8 @@ class kb extends CI_Controller
          $today_timestamp = strtotime(date('Y-m-d'));
          // Menghitung perbedaan tanggal dalam hari
          $difference_in_days = floor($difference_in_seconds / (60 * 60 * 24 * 365));
-         $three_months_later = date('Y-m-d', strtotime("+3 months"));
-         $one_months_later = date('Y-m-d', strtotime("+1 months"));
+         $today = date('Y-m-d');
+$nextThreeMonths = date('Y-m-d', strtotime('+3 months', strtotime($today)));
 
         
 
@@ -64,7 +64,7 @@ class kb extends CI_Controller
             'TD' => $tb,
             'BB' => $bb,
             'metode' => $mtd,
-            'kunjungan_ulang' => $three_months_later,
+            'kunjungan_ulang' => $ku,
             'NIK_NO_HP' => $nn,
             'keterangan' => $ket
         );
@@ -73,7 +73,53 @@ class kb extends CI_Controller
 
         redirect('kb');
     }
+//     function insert1()
+//     {
 
+//         $tgl = $this->input->post('tanggal');
+//         $reg = $this->input->post('no_regis');
+//         $nis = $this->input->post('nama_istri');
+//         $ns = $this->input->post('nama_suami');
+//         $umr = $this->input->post('umur_istri');
+//         $almt = $this->input->post('alamat');
+//         $tb = $this->input->post('TD');
+//         $bb = $this->input->post('BB');
+//         $mtd = $this->input->post('metode');
+//         $ku = $this->input->post('kunjungan_ulang');
+//         $nn = $this->input->post('NIK_NO_HP');
+//         $ket = $this->input->post('keterangan');
+//          // Mengonversi tanggal ke dalam bentuk timestamp
+//          $request_timestamp = strtotime($umr);
+//          $today_timestamp = strtotime(date('Y-m-d'));
+//          // Menghitung perbedaan tanggal dalam detik
+//  $difference_in_seconds = abs($today_timestamp - $request_timestamp);
+//          $today_timestamp = strtotime(date('Y-m-d'));
+//          // Menghitung perbedaan tanggal dalam hari
+//          $difference_in_days = floor($difference_in_seconds / (60 * 60 * 24 * 365));
+//          $today = date('Y-m-d');
+// $nextoneMonths = date('Y-m-d', strtotime('+1 months', strtotime($today)));
+
+        
+
+//         $data = array(
+//             'tanggal' => $tgl,
+//             'no_regis' => $reg,
+//             'nama_istri' => $nis,
+//             'nama_suami'=> $ns,
+//             'umur_istri' => $difference_in_days,
+//             'alamat' => $almt,
+//             'TD' => $tb,
+//             'BB' => $bb,
+//             'metode' => $mtd,
+//             'kunjungan_ulang' => $nextoneMonths,
+//             'NIK_NO_HP' => $nn,
+//             'keterangan' => $ket
+//         );
+//         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i class="fas fa-info-circle"></i> Data KB Berhasil Ditambahkan.</div>');
+//         $this->m_kb->insert_data($data);
+
+//         redirect('kb');
+//     }
     function tambah()
     {
 
@@ -83,6 +129,15 @@ class kb extends CI_Controller
         $this->load->view('kb/v_data_tambah', $data);
         $this->load->view('layouts/footer');
     }
+//     function tambah1()
+//     {
+
+//         $data['title'] = "Tambah Data User";
+
+//         $this->load->view('layouts/header', $data);
+//         $this->load->view('kb/v_data_tambah 1', $data);
+//         $this->load->view('layouts/footer');
+//     }
 
     function edit($id)
     {
@@ -153,4 +208,19 @@ class kb extends CI_Controller
 		
 		$this->load->view('kb/laporan_kb',$data);
 	}
+    public function print_laporan()
+	{
+		$data['title'] = 'LAPORAN KELUARGA BERENCANA';
+		$data['kb'] = $this->m_kb->tampilan_data()->result_array();
+		
+		$this->load->view('kb/laporan_kb1',$data);
+	}
+    public function view() {
+        $tanggal_awal = $this->input->post('tanggal_awal');
+        $tanggal_akhir = $this->input->post('tanggal_akhir');
+        
+        $data['title'] = 'Laporan Berdasarkan Tanggal';
+        $data['kb'] = $this->m_kb->get_laporan_by_tanggal($tanggal_awal, $tanggal_akhir);
+        $this->load->view('laporan/view3', $data);
+    }
 }

@@ -36,20 +36,20 @@ class pasien extends CI_Controller
         $almt = $this->input->post('alamat');
         $nik = $this->input->post('NIK');
 
-        // Mengonversi tanggal ke dalam bentuk timestamp
-        $request_timestamp = strtotime($umur);
-        $today_timestamp = strtotime(date('Y-m-d'));
-        // Menghitung perbedaan tanggal dalam detik
-$difference_in_seconds = abs($today_timestamp - $request_timestamp);
-        $today_timestamp = strtotime(date('Y-m-d'));
-        // Menghitung perbedaan tanggal dalam hari
-        $difference_in_days = floor($difference_in_seconds / (60 * 60 * 24 * 365));
+//         // Mengonversi tanggal ke dalam bentuk timestamp
+//         $request_timestamp = strtotime($umur);
+//         $today_timestamp = strtotime(date('Y-m-d'));
+//         // Menghitung perbedaan tanggal dalam detik
+// $difference_in_seconds = abs($today_timestamp - $request_timestamp);
+//         $today_timestamp = strtotime(date('Y-m-d'));
+//         // Menghitung perbedaan tanggal dalam hari
+//         $difference_in_days = floor($difference_in_seconds / (60 * 60 * 24 * 365));
 
 
         $data = array(
             'nama_pasien' => $nama,
             'jenis_kelamin' => $jk,
-            'umur' => $difference_in_days,
+            'umur' => $umur,
             'alamat' => $almt,
             'NIK' => $nik
         );
@@ -124,7 +124,16 @@ $difference_in_seconds = abs($today_timestamp - $request_timestamp);
 	{
 		$data['title'] = 'Laporan Pasien';
 		$data['pasien'] = $this->m_pasien->tampilan_data()->result_array();
-		
+
 		$this->load->view('pasien/laporan_pasien',$data);
 	}
+    public function print_laporan()
+	{
+		$data['title'] = 'Laporan Pasien';
+		$data['pasien'] = $this->m_pasien->tampilan_data()->result_array();
+
+		$this->load->view('pasien/laporan_pasien1',$data);
+	}
+
+    
 }

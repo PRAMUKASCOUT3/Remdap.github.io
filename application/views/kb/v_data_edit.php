@@ -13,13 +13,13 @@
                 <input type="hidden" name="id_kb" value="<?= $r['id_kb']; ?>">
                 <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Tanggal</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="date" name="tanggal" class="form-control" value="<?= $r['tanggal']; ?>" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">No.Regis</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <select class="form-select" name="no_regis" aria-label="Default select example" value="<?= $r['no_regis']; ?>" >
                                 <option selected=""></option>
                                 <option value="BARU">BARU</option>
@@ -30,43 +30,43 @@
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Nama istri</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="text" name="nama_istri" class="form-control" value="<?= $r['nama_istri']; ?>" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Nama Suami</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="text" name="nama_suami" class="form-control" value="<?= $r['nama_suami']; ?>" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Umur Istri</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="number" name="umur_istri" class="form-control"  value="<?= $r['umur_istri']; ?>" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Alamat</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="text" name="alamat" class="form-control" value="<?= $r['alamat']; ?>" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">TD</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="number" name="TD" class="form-control"  value="<?= $r['TD']; ?>" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">BB</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="number" name="BB" class="form-control" value="<?= $r['BB']; ?>" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Metode</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <select class="form-select" name="metode" aria-label="Default select example" value="<?= base_url('metode')?>" required >
                                 <option selected=""></option>
                                 <option value="KDM">KMD</option>
@@ -80,19 +80,19 @@
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Kunjungan Ulang</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="date" name="kunjungan_ulang" value="<?= $r['kunjungan_ulang']; ?>"class="form-control" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">NIK/NO.HP</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="number" name="NIK_NO_HP" class="form-control" value="<?= $r['NIK_NO_HP']; ?>" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Keterangan</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="text" name="keterangan" class="form-control" value="<?= $r['keterangan']; ?>"required>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
 
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <button type="submit" class="btn btn-primary">Simpan Data</button>
                         </div>
                     </div>

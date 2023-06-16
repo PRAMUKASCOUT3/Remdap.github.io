@@ -15,8 +15,9 @@ class auth extends CI_Controller
     }
     public function login_aksi()
     {
+
         $user = $this->input->post('username', true);
-        $pass = md5 ($this->input->post('password', true));
+        $pass =md5 ($this->input->post('password', true));
     
         //rule validasi
         $this->form_validation->set_rules('username','username','required');
@@ -42,7 +43,7 @@ class auth extends CI_Controller
                         'hak_akses' => 'pemilik' 
                     );
                     $this->session->set_userdata($sess_data);
-                    redirect(base_url());;
+                    redirect(base_url());
                 } else if ($data->hak_akses == 'asisten') {
                     $sess_data = array(
                         'login'=>'OK',
@@ -50,9 +51,7 @@ class auth extends CI_Controller
                         'hak_akses' => 'asisten' 
                     );
                     $this->session->set_userdata($sess_data);
-                        $this->load->view('asisten_bidan/header');
-                        $this->load->view('asisten_bidan/v_dashboard');
-                        $this->load->view('asisten_bidan/footer');
+                    redirect(base_url());
                 }
             } else{
                 redirect('auth');

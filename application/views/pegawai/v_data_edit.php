@@ -11,42 +11,42 @@
                 <!-- General Form Elements -->
                 <form method="post" action="<?= base_url('pegawai/update'); ?>">
                     <input type="hidden" name="id_pegawai" value="<?= $r['id_pegawai']; ?>">
-                    <div class="form-group pt">
+                    <div class="form-group col-sm-5 pt">
                         <label for="">Nama Pegawai</label>
                         <input type="text" name="nama_pegawai" value="<?= $r['nama_pegawai']; ?>" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-sm-5">
                         <label for="">Tempat Lahir</label>
                         <input type="text" name="tempat_lahir" value="<?= $r['tempat_lahir']?>" class="form-control" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-sm-5">
                         <label for="">Tanggal Lahir</label>
                         <input type="date" name="tanggal_lahir" value="<?= $r['tanggal_lahir']?>" class="form-control" required>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                    <div class="form-group col-sm-6">
+                        <label class="col-form-label">Jenis Kelamin</label>
                         <div class="col-sm-10">
                             <select class="form-select" name="jenis_kelamin" aria-label="Default select example">
                                 <option selected=""></option>
                                 <option value="Laki-laki">laki-laki</option>
                                 <option value="Perempuan">perempuan</option>
                             </select>
-                            <span>harap diisi kembali</span>
+                            <span class="red-font">harap diisi kembali</span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-sm-5">
                         <label for="">Umur</label>
                         <input type="number" name="umur" value="<?= $r['umur']?>" class="form-control" required>
                     </div>
                     
 
-                    <div class="form-group pt-2">
+                    <div class="form-group col-sm-5 pt-2">
                         <label for="">alamat</label>
                         <input type="text" name="alamat" value="<?= $r['alamat']; ?>" class="form-control" required>
                     </div>
 
-                    <div class="form-group pt-2">
+                    <div class="form-group col-sm-5 pt-2">
                         <label for="">No.Telpon</label>
                         <input type="number" name="no_telpon" value="<?= $r['no_telpon']; ?>" class="form-control" required>
                     </div>

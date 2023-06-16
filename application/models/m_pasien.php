@@ -48,6 +48,8 @@ class m_pasien extends CI_Model
     public function count_all() {
         return $this->db->count_all('pasien');
 
-}
+    }
+    
+    
 
 }

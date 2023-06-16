@@ -20,8 +20,8 @@
                     <label class="p-2" for="">Nama pasien</label>
                     <select name="id_pasien" id="" class="form-control">
                         <option value="">Pilih pasien</option>
-                        <?php foreach ($pasien as $r) { ?>
-                            <option value="<?= $r['id_pasien']; ?>"><?= $r['nama_pasien']; ?></option>
+                        <?php foreach ($pasien as $p) { ?>
+                                <option value="<?= $p['id_pasien']; ?>" <?= $p['id_pasien'] == $r['id_pasien'] ? 'selected' : '' ?>><?= $p['nama_pasien']; ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -29,18 +29,27 @@
                     <label class="p-2" for="">Nama pemeriksa</label>
                     <select name="id_pegawai" id="" class="form-control">
                         <option value="">Pilih pemeriksa</option>
-                        <?php foreach ($pegawai as $r) { ?>
-                            <option value="<?= $r['id_pegawai']; ?>"><?= $r['nama_pegawai']; ?></option>
+                        <?php foreach ($pegawai as $p) { ?>
+                                <option value="<?= $p['id_pegawai']; ?>" <?= $p['id_pegawai'] == $r['id_pegawai'] ? 'selected' : '' ?>><?= $p['nama_pegawai']; ?></option>
                         <?php } ?>
                     </select>
                 </div>
                     
                 <div class="row mb-3">
-                    <label class="p-2" for="">pemeriksaan</label>
+                    <label class="p-2" for="">Diagnosa</label>
                     <select name="id_pemeriksaan" id="" class="form-control">
-                        <option value="">pemeriksaan</option>
-                        <?php foreach ($pemeriksaan as $r) { ?>
-                            <option value="<?= $r['id_pemeriksaan']; ?>"><?= $r['hasil_pemeriksaan']; ?></option>
+                        <option value="">Diagnosa</option>
+                        <?php foreach ($pemeriksaan as $p) { ?>
+                                <option value="<?= $p['id_pemeriksaan']; ?>" <?= $p['id_pemeriksaan'] == $r['id_pemeriksaan'] ? 'selected' : '' ?>><?= $p['diagnosa']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="row mb-3">
+                    <label class="p-2" for="">Pengobatan</label>
+                    <select name="id_obat" id="" class="form-control">
+                        <option value="">Pengobatan</option>
+                        <?php foreach ($obat as $r) { ?>
+                            <option value="<?= $r['id_obat']; ?>" <?= $r['id_obat'] == $r['id_obat'] ? 'selected' : '' ?>><?= $r['nama_obat']; ?></option>
                         <?php } ?>
                     </select>
                 </div>

@@ -12,7 +12,7 @@
                 <form method="post" action="<?= base_url('periksa_kehamilan/insert'); ?>">
                 <div class="form-group">
                         <label for="">Tanggal</label>
-                        <input type="date" name="tanggal" class="form-control" required>
+                        <input type="date" name="Tanggal" class="form-control" required>
                     </div>
                     
                     <div class="form-group">
@@ -59,10 +59,41 @@
                         <label for="">TP</label>
                         <input type="date" name="TP" class="form-control" required>
                     </div>
-                    <th>pemeriksaan</th>
+                    <th>PEMERIKSAAN</th>
+                    <br>
+                    <br>
                     <div class="form-group">
-                        <textarea name="pemeriksaan" id="" cols="30" rows="10"></textarea>
+                        <label for="">LILA</label>
+                        <input type="text" name="LILA" class="form-control" required>
                     </div>
+                    <div class="form-group">
+                    <label for="">BB</label>
+                    <input type="text" name="BB" class="form-control" required>
+                    </div>
+<div class="form-group">
+    <label for="">TD</label>
+    <input type="text" name="TD" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="">HAMIL</label>
+    <input type="text" name="HAMIL" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="">TFU</label>
+    <input type="text" name="TFU" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="">LETAK JANIN</label>
+    <input type="text" name="LETAK_JANIN" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="">DJJ</label>
+    <input type="text" name="DJJ" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="">LAB/HB</label>
+    <input type="text" name="LAB/HB" class="form-control" required>
+</div>
                     <div class="form-group">
                         <label for="">keluhan</label>
                         <input type="text" name="keluhan" class="form-control" required>

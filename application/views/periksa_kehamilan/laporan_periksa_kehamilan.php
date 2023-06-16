@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title; ?></title>
 	<link rel="stylesheet" href="<?= base_url();?>assets/css/bootstrap.min.css">
+    <script>
+        @media print {
+    table {
+        table-layout: fixed; /* mengatur lebar tabel tetap */
+        width: 100%; /* mengatur lebar tabel 100% */
+    }
+
+    th, td {
+        word-wrap: break-word; /* mengatur agar teks tidak keluar dari sel tabel */
+        max-width: 100%; /* mengatur lebar maksimum teks pada sel tabel */
+    }
+}
+    </script>
 </head>
 <body>
     <div class="container" >
@@ -22,46 +35,60 @@
 
         <table class = "table table-bordered table-sm">
         <tr>
-                                <th>NO.</th>
-                                <th>tanggal</th>
-                                <th>Nama Istri</th>
-                                <th>Nama Suami</th>
-                                <th>Umur Istri</th>
-                                <th>Umur Suami</th>
-                                <th>alamat</th>
-                                <th>No.Telpon</th>
-                                <th>Gravida</th>
-                                <th>Partus</th>
-                                <th>Abortus</th>
-                                <th>HPHT</th>
-                                <th>TP</th>
-                                <th>Pemeriksaan</th>
-                                <th>keluhan</th>
-                                <th>terapi</th>
-                                <th>keterangan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 1;
-                            foreach ($periksa_kehamilan as $r) { ?>
-                                <tr>
-                                    <td class="text-center"><?= $no; ?></td>
-                                    <td><?= $r['Tanggal']; ?></td>
-                                    <td><?= $r['nama_istri']; ?></td>
-                                    <td><?= $r['nama_suami']; ?></td>
-                                    <td><?= $r['umur_istri']; ?></td>
-                                    <td><?= $r['umur_suami']; ?></td>
-                                    <td><?= $r['alamat']; ?></td>
-                                    <td><?= $r['no_telpon']; ?></td>
-                                    <td><?= $r['Gravida']; ?></td>
-                                    <td><?= $r['Partus']; ?></td>
-                                    <td><?= $r['Abortus']; ?></td>
-                                    <td><?= $r['HPHT']; ?></td>
-                                    <td><?= $r['TP']; ?></td>
-                                    <td><?= $r['pemeriksaan']; ?></td>
-                                    <td><?= $r['keluhan']; ?></td>
-                                    <td><?= $r['terapi']; ?></td>
-                                    <td><?= $r['keterangan']; ?></td>
+        <th scope="col">NO.</th>
+        <th scope="col">tanggal</th>
+        <th scope="col">Identitas</th>
+        <th scope="col">alamat</th>
+        <th scope="col">G</th>
+        <th scope="col">P</th>
+        <th scope="col">A</th>
+        <th scope="col">HPHT</th>
+        <th scope="col">TP</th>
+        <th scope="col">Pemeriksaan</th>
+        <th scope="col">keluhan</th>
+        <th scope="col">terapi</th>
+        <th scope="col">keterangan</th>
+    </tr>
+</thead>
+<tbody>
+    <?php $no = 1;
+    foreach ($periksa_kehamilan as $r) { ?>
+        <tr>
+            <td class="text-center "><?= $no; ?></td>
+            <td><?= $r['Tanggal']; ?></td>
+            <td>
+                Nama Istri : <?= $r['nama_istri']; ?><br>
+                Nama Suami : <?= $r['nama_suami']; ?><br>
+                Umur Istri : <?= $r['umur_istri']; ?><br>
+                Umur Suami : <?= $r['umur_suami']; ?><br>
+                No.Telpon : <?= $r['no_telpon']; ?><br>
+            </td>
+            <td><?= $r['alamat']; ?></td>
+            <td><?= $r['Gravida']; ?></td>
+            <td><?= $r['Partus']; ?></td>
+            <td><?= $r['Abortus']; ?></td>
+            <td><?= $r['HPHT']; ?></td>
+            <td><?= $r['TP']; ?></td>
+            <td>
+                LILA : <?= $r['LILA']; ?>
+                <hr class="line-title">
+                BB : <?= $r['BB']; ?>
+                <hr class="line-title">
+                TD : <?= $r['TD']; ?>
+                <hr class="line-title">
+                HAMIL : <?= $r['HAMIL']; ?>
+                <hr class="line-title">
+                TFU : <?= $r['TFU']; ?>
+                <hr class="line-title">
+                LETAK JANIN : <?= $r['LETAK_JANIN']; ?>
+                <hr class="line-title">
+                DJJ : <?= $r['DJJ']; ?>
+                <hr class="line-title">
+                LAB/HB : <?= $r['LAB/HB']; ?>
+            </td>
+            <td><?= $r['keluhan']; ?></td>
+            <td><?= $r['terapi']; ?></td>
+            <td><?= $r['keterangan']; ?></td>
             </tr>
             <?php $no++;}?> 
         </table>

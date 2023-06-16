@@ -72,11 +72,9 @@ class imunisasi extends CI_Controller
         $this->load->view('layouts/footer');
     }
 
-    function edit($id)
-    {
-
-        $data['title'] = "Edit Data imunisasi";
-
+    function edit($id){
+        $data['title'] = "Edit Data Imunisasi";
+        $data['imunisasi'] = $this->m_imunisasi->get_imunisasi();
         $where = array('id_imunisasi' => $id);
         $data['r'] = $this->m_imunisasi->edit_data($where)->row_array();
         
@@ -127,12 +125,6 @@ class imunisasi extends CI_Controller
         redirect('imunisasi');
     }
 
-    function get_nama_bayi()
-    {
-        $data['nama_bayi'] = $this->m_pasien->get_nama_bayi();
-        $this->load->view('imunisasi/v_data_tambah', $data);
-    }
-
     public function cetak_laporan()
 	{
 		$data['title'] = 'LAPORAN DATA IMUNISASI';
@@ -141,5 +133,21 @@ class imunisasi extends CI_Controller
 		$this->load->view('imunisasi/laporan_imunisasi',$data);
 	}
 
-   
+    public function print_laporan()
+	{
+		$data['title'] = 'LAPORAN DATA IMUNISASI';
+		$data['imunisasi'] = $this->m_imunisasi->get_imunisasi();
+		
+		$this->load->view('imunisasi/laporan_imunisasi1',$data);
+	}
+    public function view() {
+        $tanggal_awal = $this->input->post('tanggal_awal');
+        $tanggal_akhir = $this->input->post('tanggal_akhir');
+        
+        $data['title'] = 'Laporan Berdasarkan Tanggal';
+        $data['imunisasi'] = $this->m_imunisasi->get_laporan_by_tanggal($tanggal_awal, $tanggal_akhir);
+        $this->load->view('laporan/view2', $data);
+    }
+    
+
 }

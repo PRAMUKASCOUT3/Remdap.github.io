@@ -32,7 +32,7 @@
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Umur</label>
                         <div class="col-sm-10">
-                            <input type="number" name="umur"  value="<?= $r['umur']; ?>" class="form-control" required>
+                            <input type="text" name="umur"  value="<?= $r['umur']; ?>" class="form-control" required>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -43,7 +43,7 @@
                         <div class="row mb-3 pt-4">
                         <label for="inputText" class="col-sm-2 col-form-label">NIK</label>
                         <div class="col-sm-10">
-                            <input type="number" name="NIK" class="form-control" value="<?= $r['NIK']; ?>" required>
+                            <input type="text" name="NIK" class="form-control" value="<?= $r['NIK']; ?>" required>
                         </div>
 
 

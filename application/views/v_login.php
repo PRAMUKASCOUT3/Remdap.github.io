@@ -51,7 +51,7 @@
     <br>
     <div>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password">
+    <input md5 type="password" id="inputPassword" name="password" class="form-control" placeholder="Password">
     <?= form_error('password','<small class="text-danger pl-3">','</small>')?>
     </div>
     <br>

@@ -38,8 +38,23 @@ class lahiran extends CI_Controller
         $pi = $this->input->post('pekerjaan_istri');
         $ps = $this->input->post('pekerjaan_suami');
         $klh = $this->input->post('keluhan');
-        $tdk = $this->input->post('tindakan');
+        // $tdk = $this->input->post('tindakan');
+        $td = $this->input->post('TD');
+        $s = $this->input->post('S');
+        $bb = $this->input->post('BB');
+        $tfu = $this->input->post('TFU');
+        $djj = $this->input->post('DJJ');
+        $pd = $this->input->post('PD');
+        $p1 = $this->input->post('porsio1');
+        $p2 = $this->input->post('porsio2');
+        $kbn = $this->input->post('ketuban');
+        $ph = $this->input->post('penurunan_HOD');
         $bl = $this->input->post('bayi_lahir');
+        $pkl = $this->input->post('pukul');
+        $bdn = $this->input->post('berat_badan');
+        $pb = $this->input->post('PB');
+        $jk = $this->input->post('JK');
+        $ans =$this->input->post('anus');
         $ket = $this->input->post('keterangan');
 
         // Mengonversi tanggal ke dalam bentuk timestamp
@@ -63,8 +78,23 @@ class lahiran extends CI_Controller
             'pekerjaan_istri' => $pi,
             'pekerjaan_suami' => $ps,
             'keluhan' => $klh,
-            'tindakan' => $tdk,
+            // 'tindakan' => $tdk,
+            'TD' => $td,
+            'S' => $s,
+            'BB' => $bb,
+            'TFU' => $tfu,
+            'DJJ' => $djj,
+            'PD' => $pd,
+            'porsio1' => $p1,
+            'porsio2' => $p2,
+            'ketuban' => $kbn,
+            'penurunan_HOD' => $ph,
             'bayi_lahir' => $bl,
+            'pukul' => $pkl,
+            'berat_badan' => $bdn,
+            'PB'=> $pb,
+            'JK' => $jk,
+            'anus' => $ans,
             'keterangan' => $ket
         );
 
@@ -111,7 +141,22 @@ class lahiran extends CI_Controller
         $ps = $this->input->post('pekerjaan_suami');
         $klh = $this->input->post('keluhan');
         $tdk = $this->input->post('tindakan');
+        $td = $this->input->post('TD');
+        $s = $this->input->post('S');
+        $bb = $this->input->post('BB');
+        $tfu = $this->input->post('TFU');
+        $djj = $this->input->post('DJJ');
+        $pd = $this->input->post('PD');
+        $p1 = $this->input->post('porsio1');
+        $p2 = $this->input->post('porsio2');
+        $kbn = $this->input->post('ketuban');
+        $ph = $this->input->post('penurunan_HOD');
         $bl = $this->input->post('bayi_lahir');
+        $pkl = $this->input->post('pukul');
+        $bdn = $this->input->post('berat_badan');
+        $pb = $this->input->post('PB');
+        $jk = $this->input->post('JK');
+        $ans =$this->input->post('anus');
         $ket = $this->input->post('keterangan');
 
         $data = array(
@@ -126,7 +171,22 @@ class lahiran extends CI_Controller
             'pekerjaan_suami' => $ps,
             'keluhan' => $klh,
             'tindakan' => $tdk,
+            'TD' => $td,
+            'S' => $s,
+            'BB' => $bb,
+            'TFU' => $tfu,
+            'DJJ' => $djj,
+            'PD' => $pd,
+            'porsio1' => $p1,
+            'porsio2' => $p2,
+            'ketuban' => $kbn,
+            'penurunan_HOD' => $ph,
             'bayi_lahir' => $bl,
+            'pukul' => $pkl,
+            'berat_badan' => $bdn,
+            'PB'=> $pb,
+            'JK' => $jk,
+            'anus' => $ans,
             'keterangan' => $ket
         );
 
@@ -153,4 +213,21 @@ class lahiran extends CI_Controller
 		
 		$this->load->view('lahiran/laporan_lahiran',$data);
 	}
+
+    public function print_laporan()
+	{
+		$data['title'] = 'LAPORAN DATA LAHIRAN';
+		$data['lahiran'] = $this->m_lahiran->tampilan_data()->result_array();
+		
+		$this->load->view('lahiran/laporan_lahiran1',$data);
+	}
+    public function view() {
+        $tanggal_awal = $this->input->post('tanggal_awal');
+        $tanggal_akhir = $this->input->post('tanggal_akhir');
+        
+        $data['title'] = 'Laporan Berdasarkan Tanggal';
+        $data['lahiran'] = $this->m_lahiran->get_laporan_by_tanggal($tanggal_awal, $tanggal_akhir);
+        $this->load->view('laporan/view', $data);
+    }
+    
 }

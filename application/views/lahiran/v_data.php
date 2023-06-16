@@ -1,7 +1,6 @@
 <div class="card-body">
     <div class="card-header">
         <a href="<?= base_url('lahiran/tambah'); ?>" class="btn btn-primary">Tambah Data</a>
-        <a href="<?= base_url('lahiran/cetak_laporan')?>" class = "btn btn-warning">Laporan</a>
         <h5 class="card-title"> <?php ECHO($title);?> </h5>
         <?= $this->session->flashdata('pesan'); ?>
         <!-- Table with stripped rows -->
@@ -12,14 +11,7 @@
                             <tr>
                                 <th>NO.</th>
                                 <th>tanggal</th>
-                                <th>Nama Istri</th>
-                                <th>Nama Suami</th>
-                                <th>Umur Istri</th>
-                                <th>Umur Suami</th>
-                                <th>alamat</th>
-                                <th>No.Telpon</th>
-                                <th>pekerjaan Istri</th>
-                                <th>Pekerjaan Suami</th>
+                                <th>Identitas</th>
                                 <th>keluhan</th>
                                 <th>tindakan</th>
                                 <th>Bayi Lahir</th>
@@ -33,17 +25,38 @@
                                 <tr>
                                     <td class="text-center"><?= $no; ?></td>
                                     <td><?= $r['tanggal']; ?></td>
-                                    <td><?= $r['nama_istri']; ?></td>
-                                    <td><?= $r['nama_suami']; ?></td>
-                                    <td><?= $r['umur_istri']; ?></td>
-                                    <td><?= $r['umur_suami']; ?></td>
-                                    <td><?= $r['alamat']; ?></td>
-                                    <td><?= $r['No_telpon']; ?></td>
-                                    <td><?= $r['pekerjaan_istri']; ?></td>
-                                    <td><?= $r['pekerjaan_suami']; ?></td>
-                                    <td><?= $r['keluhan']; ?></td>
-                                    <td><?= $r['tindakan']; ?></td>
-                                    <td><?= $r['bayi_lahir']; ?></td>
+                                    <td>
+                                        Nama Istri      : <?= $r['nama_istri']?><br>
+                                        Nama Suami      : <?= $r['nama_suami']?><br>
+                                        Umur Istri      : <?= $r['umur_istri']?><br>
+                                        Umur Suami      : <?= $r['umur_suami']?><br>
+                                        No.Hp           : <?= $r['No_telpon']?><br>
+                                        Pekerjaan Istri : <?= $r['pekerjaan_istri']?><br>
+                                        Pekerjaan suami : <?= $r['pekerjaan_suami']?><br>
+                                    </td>
+                                    <td> OS. Dengan Keluhan : <br>
+                                    <?= $r['keluhan']; ?></td>
+                                    <td>
+                                        TTV :
+                                        TD  : <?= $r['TD']?><br>
+                                        S   : <?= $r['S']?><br>
+                                        BB  : <?= $r['BB']?><br>
+                                        TFU : <?= $r['TFU']?><br>
+                                        DJJ : <?= $r['DJJ']?><br>
+                                        PD  : <?= $r['PD']?><br>
+                                        PORSIO : <?= $r['porsio1']?>,
+                                        <?= $r['porsio2']?><br>
+                                        Ketuban : <?= $r['ketuban']?><br>
+                                        Penurunan/HOD : <?= $r['penurunan_HOD']?>
+                                    </td>
+                                    <td>
+                                        Pukul : <?= $r['pukul']?><br>
+                                        Tanggal Lahir : <?= $r['bayi_lahir']?><br>
+                                        BB : <?= $r['berat_badan']?><br>
+                                        PB : <?= $r['PB']?> CM <br>
+                                        JK : <?= $r['JK']?><br>
+                                        Anus : <?= $r['anus']?><br>
+                                    </td>
                                     <td><?= $r['keterangan']; ?></td>
 
 

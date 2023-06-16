@@ -23,6 +23,7 @@ class m_imunisasi extends CI_Model
 
     function update_data($data, $where)
     {
+        
         $this->db->where($where);
         $this->db->update('imunisasi', $data);
     }
@@ -42,5 +43,14 @@ class m_imunisasi extends CI_Model
     }
     public function count_all() {
         return $this->db->count_all('imunisasi');
+}
+public function get_laporan_by_tanggal($tanggal_awal, $tanggal_akhir) {
+    $this->db->select('imunisasi.*, pasien.nama_pasien as nama_pasien');
+    $this->db->from('imunisasi');
+    $this->db->join('pasien', 'imunisasi.id_pasien = pasien.id_pasien');
+    $this->db->where('tanggal >=', $tanggal_awal);
+    $this->db->where('tanggal <=', $tanggal_akhir);
+    $query = $this->db->get();
+    return $query->result();
 }
 }

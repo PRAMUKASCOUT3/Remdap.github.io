@@ -51,7 +51,7 @@
                         <td><?= $r['metode']; ?></td>
                         <td><?= $r['kunjungan_ulang']; ?></td>
                         <td><?= $r['NIK_NO_HP']; ?></td>
-                        <td><?= $r['keterangan']; ?></td>>
+                        <td><?= $r['keterangan']; ?></td>
             </tr>
             <?php $no++;}?> 
         </table>

@@ -35,11 +35,20 @@
                 </div>
                     
                 <div class="row mb-3">
-                    <label class="p-2" for="">pemeriksaan</label>
+                    <label class="p-2" for="">Diagnosa</label>
                     <select name="id_pemeriksaan" id="" class="form-control">
-                        <option value="">pemeriksaan</option>
+                        <option value="">Diagnosa</option>
                         <?php foreach ($pemeriksaan as $r) { ?>
-                            <option value="<?= $r['id_pemeriksaan']; ?>"><?= $r['hasil_pemeriksaan']; ?></option>
+                            <option value="<?= $r['id_pemeriksaan']; ?>"><?= $r['diagnosa']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="row mb-3">
+                    <label class="p-2" for="">Pengobatan</label>
+                    <select name="id_obat" id="" class="form-control">
+                        <option value="">Pengobatan</option>
+                        <?php foreach ($obat as $r) { ?>
+                            <option value="<?= $r['id_obat']; ?>"><?= $r['nama_obat']; ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -47,7 +56,6 @@
                         <button type="submit" class="btn btn-primary btn-sm">Tambah Data</button>
                     </div>
                 
-
                 </form><!-- End General Form Elements -->
 
             </div>

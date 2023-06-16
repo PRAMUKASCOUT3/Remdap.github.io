@@ -29,7 +29,7 @@ class periksa_kehamilan extends CI_Controller
     function insert()
     {
 
-        $tgl = $this->input->post('tanggal');
+        $tgl = $this->input->post('Tanggal');
         $ni = $this->input->post('nama_istri');
         $ns = $this->input->post('nama_suami');
         $ui = $this->input->post('umur_istri');
@@ -41,7 +41,15 @@ class periksa_kehamilan extends CI_Controller
         $a = $this->input->post('Abortus');
         $hpht = $this->input->post('HPHT');
         $tp = $this->input->post('TP');
-        $ps = $this->input->post('pemeriksaan');
+        // $ps = $this->input->post('pemeriksaan');
+        $LL = $this->input->post('LILA');
+        $bb = $this->input->post('BB');
+        $td = $this->input->post('TD');
+        $hm = $this->input->post('HAMIL');
+        $tfu = $this->input->post('TFU');
+        $lj = $this->input->post('LETAK_JANIN');
+        $djj = $this->input->post('DJJ');
+        $lh = $this->input->post('LAB/HB');
         $klh = $this->input->post('keluhan');
         $tdk = $this->input->post('terapi');
         $ket = $this->input->post('keterangan');
@@ -57,7 +65,7 @@ class periksa_kehamilan extends CI_Controller
         $difference_in_days = floor($difference_in_seconds / (60 * 60 * 24 * 365));
 
         $data = array(
-            'tanggal' => $tgl,
+            'Tanggal' => $tgl,
             'nama_istri' => $ni,
             'nama_suami' => $ns,
             'umur_istri' => $difference_in_days,
@@ -69,7 +77,15 @@ class periksa_kehamilan extends CI_Controller
             'Abortus' => $a,
             'HPHT' => $hpht,
             'TP' => $tp,
-            'pemeriksaan' => $ps,
+            // 'pemeriksaan' => $ps,
+            'LILA' => $LL, 
+            'BB' => $bb,
+            'TD' => $td,
+            'HAMIL' => $hm,
+            'TFU' => $tfu,
+            'LETAK_JANIN' => $lj,
+            'DJJ' => $djj,
+            'LAB/HB' => $lh,
             'keluhan' => $klh,
             'terapi' => $tdk,
             'keterangan' => $ket
@@ -106,7 +122,7 @@ class periksa_kehamilan extends CI_Controller
     function update()
     {
         $id = $this->input->post('id_periksa');
-        $tgl = $this->input->post('tanggal');
+        $tgl = $this->input->post('Tanggal');
         $ni = $this->input->post('nama_istri');
         $ns = $this->input->post('nama_suami');
         $ui = $this->input->post('umur_istri');
@@ -116,15 +132,23 @@ class periksa_kehamilan extends CI_Controller
         $g = $this->input->post('Gravida');
         $p = $this->input->post('Partus');
         $a = $this->input->post('Abortus');
-        $ps = $this->input->post('HPHT');
-        $ps = $this->input->post('TP');
-        $ps = $this->input->post('pemeriksaan');
+        $hpht = $this->input->post('HPHT');
+        $tp = $this->input->post('TP');
+        // $ps = $this->input->post('pemeriksaan');
+        $LL = $this->input->post('LILA');
+        $bb = $this->input->post('BB');
+        $td = $this->input->post('TD');
+        $hm = $this->input->post('HAMIL');
+        $tfu = $this->input->post('TFU');
+        $lj = $this->input->post('LETAK_JANIN');
+        $djj = $this->input->post('DJJ');
+        $lh = $this->input->post('LAB/HB');
         $klh = $this->input->post('keluhan');
         $tdk = $this->input->post('terapi');
         $ket = $this->input->post('keterangan');
 
         $data = array(
-          'tanggal' => $tgl,
+          'Tanggal' => $tgl,
             'nama_istri' => $ni,
             'nama_suami' => $ns,
             'umur_istri' => $ui,
@@ -134,18 +158,24 @@ class periksa_kehamilan extends CI_Controller
             'Gravida' => $g,
             'Partus' => $p,
             'Abortus' => $a,
-            'HPHT' => $g,
-            'TP' => $g,
-            'pemeriksaan' => $ps,
+            'HPHT' => $hpht,
+            'TP' => $tp,
+            //'pemeriksaan' => $ps,
+            'LILA' => $LL,
+            'BB' => $bb,
+            'TD' => $td,
+            'HAMIL' => $hm,
+            'TFU' => $tfu,
+            'LETAK_JANIN' => $lj,
+            'DJJ' => $djj,
+            'LAB/HB' => $lh,
             'keluhan' => $klh,
             'terapi' => $tdk,
             'keterangan' => $ket
         );
-
         $where = array('id_periksa' => $id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i class="fas fa-info-circle"></i> Data Periksa Kehamilan Berhasil Diubah.</div>');
         $this->m_periksa_kehamilan->update_data($data, $where);
-
         redirect('periksa_kehamilan');
     }
 
@@ -166,4 +196,20 @@ class periksa_kehamilan extends CI_Controller
 		
 		$this->load->view('periksa_kehamilan/laporan_periksa_kehamilan',$data);
 	}
+
+    public function print_laporan()
+	{
+		$data['title'] = 'LAPORAN PERIKSA KEHAMILAN';
+		$data['periksa_kehamilan'] = $this->m_periksa_kehamilan->tampilan_data()->result_array();
+		
+		$this->load->view('periksa_kehamilan/laporan_periksa_kehamilan1',$data);
+	}
+    public function view() {
+        $tanggal_awal = $this->input->post('tanggal_awal');
+        $tanggal_akhir = $this->input->post('tanggal_akhir');
+        
+        $data['title'] = 'Laporan Berdasarkan Tanggal';
+        $data['periksa_kehamilan'] = $this->m_periksa_kehamilan->get_laporan_by_tanggal($tanggal_awal, $tanggal_akhir);
+        $this->load->view('laporan/view5', $data);
+    }
 }

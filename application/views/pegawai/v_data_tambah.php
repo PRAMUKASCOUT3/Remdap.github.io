@@ -10,21 +10,21 @@
 
                 <!-- General Form Elements -->
                 <form method="post" action="<?= base_url('pegawai/insert'); ?>">
-                <div class="form-group">
+                <div class="form-group col-sm-3">
                         <label for="">Nama Pegawai</label>
                         <input type="text" name="nama_pegawai" class="form-control" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-sm-3">
                         <label for="">Tempat Lahir</label>
                         <input type="text" name="tempat_lahir" class="form-control" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-sm-3">
                         <label for="">Tanggal Lahir</label>
                         <input type="date" name="tanggal_lahir" class="form-control" required>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
-                        <div class="col-sm-10">
+                    <div class="form-group col-sm-3">
+                        <label class="col-form-label">Jenis Kelamin</label>
+                        <div class="col-sm-12">
                             <select class="form-select" name="jenis_kelamin" aria-label="Default select example">
                                 <option selected=""></option>
                                 <option value="laki-laki">laki-laki</option>
@@ -32,19 +32,19 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-sm-3">
                         <label for="">Umur</label>
                         <input type="date" name="umur" class="form-control" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="">alamat</label>
-                        <input type="text" name="alamat" class="form-control" required>
-                    </div>
                     
-                    <div class="form-group">
+                    <div class="form-group col-sm-3">
                         <label for="">No.Telpon</label>
                         <input type="number" name="no_telpon" class="form-control" required>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label for="">alamat</label>
+                        <input type="text" name="alamat" class="form-control" required>
                     </div>
 
                     <div class="form-group pt-2">

@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class rekam_medis extends CI_Controller
 {
-    function __construct()
+     public function __construct()
     {
         parent::__construct();
 
@@ -15,6 +15,7 @@ class rekam_medis extends CI_Controller
         $this->load->model('m_pegawai');
         $this->load->model('m_pemeriksaan');
         $this->load->model('m_pasien');
+        $this->load->model('m_obat');
         
     }
 
@@ -36,12 +37,14 @@ class rekam_medis extends CI_Controller
         $n = $this->input->post('id_pasien');
         $p = $this->input->post('id_pegawai');
         $q = $this->input->post('id_pemeriksaan');
+        $d = $this->input->post('id_obat');
 
         $data = array(
             'tanggal' => $u,
             'id_pasien' => $n,
             'id_pegawai' => $p,
-            'id_pemeriksaan' => $q
+            'id_pemeriksaan' => $q,
+            'id_obat' => $d
         );
 
         $this->m_rekam_medis->insert_data($data);
@@ -57,6 +60,8 @@ class rekam_medis extends CI_Controller
         $data['pasien'] = $this->m_pasien->get_pasien_all();
         $data['pegawai'] = $this->m_pegawai->get_pegawai_all();
         $data['pemeriksaan'] = $this->m_pemeriksaan->get_pemeriksaan_all();
+        $data['obat'] = $this->m_obat->get_obat_all();
+
 
         $this->load->view('layouts/header', $data);
         $this->load->view('rekam_medis/v_data_tambah', $data);
@@ -69,7 +74,12 @@ class rekam_medis extends CI_Controller
         $data['title'] = "Edit Data rekam_medis";
 
         $where = array('id_rekam_medis' => $id);
-        $data['r'] = $this->m_rekam_medis->edit_data()->result_array();
+        $data['r'] = $this->m_rekam_medis->get_rekam($where)[0];
+
+         $data['pasien'] = $this->m_pasien->get_pasien_all();
+        $data['pegawai'] = $this->m_pegawai->get_pegawai_all();
+        $data['pemeriksaan'] = $this->m_pemeriksaan->get_pemeriksaan_all();
+        $data['obat'] = $this->m_obat->get_obat_all();
 
         $this->load->view('layouts/header', $data);
         $this->load->view('rekam_medis/v_data_edit', $data);
@@ -83,12 +93,14 @@ class rekam_medis extends CI_Controller
         $n = $this->input->post('id_pasien');
         $p = $this->input->post('id_pegawai');
         $q = $this->input->post('id_pemeriksaan');
+        $d = $this->input->post('id_obat');
 
         $data = array(
             'tanggal' => $u,
             'id_pasien' => $n,
             'id_pegawai' => $p,
-            'id_pemeriksaan' => $q
+            'id_pemeriksaan' => $q,
+            'id_obat' => $d
         );
 
         $where = array ('id_rekam_medis' => $id);
@@ -105,6 +117,29 @@ class rekam_medis extends CI_Controller
         $this->m_rekam_medis->hapus_data($where);
 
         redirect('rekam_medis');
+    }
+    public function cetak_laporan()
+	{
+		$data['title'] = 'LAPORAN REKAM MEDIS';
+		$data['rekam_medis'] = $this->m_rekam_medis->get_rekam();
+		
+		$this->load->view('rekam_medis/laporan_rekam_medis',$data);
+	}
+
+    public function print_laporan()
+	{
+		$data['title'] = 'LAPORAN REKAM MEDIS';
+		$data['rekam_medis'] = $this->m_rekam_medis->get_rekam();
+		
+		$this->load->view('rekam_medis/laporan_rekam_medis1',$data);
+	}
+    public function view() {
+        $tanggal_awal = $this->input->post('tanggal_awal');
+        $tanggal_akhir = $this->input->post('tanggal_akhir');
+        
+        $data['title'] = 'Laporan Berdasarkan Tanggal';
+        $data['rekam_medis'] = $this->m_rekam_medis->get_laporan_by_tanggal($tanggal_awal, $tanggal_akhir);
+        $this->load->view('laporan/view4', $data);
     }
 
     

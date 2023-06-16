@@ -32,4 +32,12 @@ class m_kb extends CI_Model
     public function count_all() {
         return $this->db->count_all('kb');
     }
+    public function get_laporan_by_tanggal($tanggal_awal, $tanggal_akhir) {
+        $this->db->select('*');
+        $this->db->from('kb');
+        $this->db->where('tanggal >=', $tanggal_awal);
+        $this->db->where('tanggal <=', $tanggal_akhir);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

@@ -1,53 +1,60 @@
 <?php
 
-class m_pemeriksaan extends CI_Model
+class M_Pemeriksaan extends CI_Model
 {
 
-    function tampilan_data()
+    public function tampil_data()
     {
         return $this->db->get('pemeriksaan');
-
     }
 
-    function insert_data($data)
+    public function insert_data($data)
     {
-        
-        return $this->db->insert('pemeriksaan', $data);
-        return $this->db->insert('pasien', $data);
+        $this->db->insert('pemeriksaan', $data);
+        return $this->db->insert_id();
     }
 
-    function edit_data($where)
-    {
+    function edit_data($where){
         return $this->db->get_where('pemeriksaan', $where);
-        
+
     }
 
     function update_data($data, $where)
     {
         $this->db->where($where);
         $this->db->update('pemeriksaan', $data);
-        $this->db->update('pasien', $data);
     }
 
-    function hapus_data($where)
+    public function delete_data($id)
     {
-        $this->db->where($where);
+        $this->db->where($id);
         $this->db->delete('pemeriksaan');
     }
 
-    public function get_pemeriksaan() {
-        $this->db->select('*');
+    public function get_pemeriksaan()
+    {
+        $this->db->select('pemeriksaan.*, obat.nama_obat as nama_obat');
+        $this->db->select('pemeriksaan.*, pasien.nama_pasien as nama_pasien');
         $this->db->from('pemeriksaan');
-        $this->db->join('pasien', 'pemeriksaan.id_pasien = pasien.id_pasien','left');
-        return $this->db->get('');
-        
-    }
-    function get_pemeriksaan_all() {
-        $query = $this->db->get('pemeriksaan');
+        $this->db->join('obat', 'pemeriksaan.id_obat = obat.id_obat', 'left');
+        $this->db->join('pasien', 'pemeriksaan.id_pasien = pasien.id_pasien', 'left');
+        $query = $this->db->get();
         return $query->result_array();
     }
 
-    public function count_all() {
-        return $this->db->count_all('pemeriksaan');
-}
-}
+    public function count_all()
+    {
+        return $this->db->count_all_results('pemeriksaan');
+    }
+    public function get_laporan_by_tanggal($tanggal_awal, $tanggal_akhir) {
+        $this->db->select('pemeriksaan.*, obat.nama_obat as nama_obat');
+        $this->db->select('pemeriksaan.*, pasien.nama_pasien as nama_pasien');
+        $this->db->from('pemeriksaan');
+        $this->db->join('obat', 'pemeriksaan.id_obat = obat.id_obat', 'left');
+        $this->db->join('pasien', 'pemeriksaan.id_pasien = pasien.id_pasien', 'left');
+        $this->db->where('tanggal >=', $tanggal_awal);
+        $this->db->where('tanggal <=', $tanggal_akhir);
+        $query = $this->db->get();
+        return $query->result();
+    }
+} 

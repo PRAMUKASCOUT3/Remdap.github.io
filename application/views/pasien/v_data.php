@@ -25,7 +25,7 @@
                         <td class="text-center"><?= $no; ?></td>
                         <td><?= $r['nama_pasien']; ?></td>
                         <td><?= $r['jenis_kelamin']; ?></td>
-                        <td><?= $r['umur']; ?> tahun</td>
+                        <td><?= $r['umur']; ?></td>
                         <td><?= $r['alamat']; ?> </td>
                         <td><?= $r['NIK']; ?> </td>
 

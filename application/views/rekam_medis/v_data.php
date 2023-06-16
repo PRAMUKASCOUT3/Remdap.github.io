@@ -13,7 +13,8 @@
                                 <th>Tanggal</th>
                                 <th>Nama pasien</th>
                                 <th>Nama Periksa</th>
-                                <th>Hasil Pemeriksaan</th>
+                                <th>Diagnosa</th>
+                                <th>Pengobatan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -25,7 +26,9 @@
                                     <td><?= $r['tanggal']; ?></td>
                                     <td><?php echo $r['nama_pasien']; ?></td>
                                     <td><?php echo $r['nama_pegawai']; ?></td>
-                                    <td><?php echo $r['hasil_pemeriksaan']; ?></td>
+                                    <td><?php echo $r['diagnosa']; ?></td>
+                                    <td><?php echo $r['nama_obat']; ?></td>
+
 
                                     <td>
                                         <a href="<?= base_url() . 'rekam_medis/edit/' . $r['id_rekam_medis']; ?>" class="btn btn-warning btn-sm">Edit</a>

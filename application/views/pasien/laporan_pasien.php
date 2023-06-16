@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="<?= base_url();?>assets/css/bootstrap.min.css">
 </head>
 <body>
+   
+
     <div class="container" >
     <header>
     <img src="<?= base_url()?>assets/img/logobidan.png" width = "100px" alt="Left Image" style="float: left;">
@@ -34,7 +36,7 @@
                 <td><?= $no; ?></td>
                 <td><?php echo $r['nama_pasien']?></td>
                 <td><?= $r['jenis_kelamin']?></td>
-                <td><?= $r['umur']?></td>
+                <td><?= $r['umur']?> Tahun</td>
                 <td><?= $r['alamat']?></td>
                 <td><?= $r['NIK']?></td>
             </tr>
